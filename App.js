@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useState}from 'react'
-import {TouchableHighlight, TextInput, SafeAreaView, Text, View, Alert } from 'react-native'
-import { Checkbox } from 'react-native-paper';
+import {TouchableHighlight, TextInput, SafeAreaView, Text, View, Alert} from 'react-native'
+import CheckBox from '@react-native-community/checkbox'
 import Estilos from './componentes/estilos/estilos.js'
 
 export default function App() {
@@ -25,17 +25,14 @@ export default function App() {
   return (
     <SafeAreaView style={Estilos.container}>
       
-      
-      <Checkbox
-     status={checked ? 'checked':'unchecked'}
-      onPress={() => {
-        setChecked(!checked)
-      }}
-    />
+      <CheckBox
+    disabled={false}
+    value={checked}
+    onValueChange={(newValue) => setChecked(newValue)}
+  />
 
       <StatusBar style="auto" />
 
-      <Text>msg</Text>
       <TextInput 
       style={Estilos.entradatexto}
       value={String(valor)}
